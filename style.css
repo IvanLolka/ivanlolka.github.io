@@ -53,7 +53,6 @@ a {
     opacity: 0;
     transition: 0s ease;
     position: absolute;
-
 }
 .txt {
     font-size: 25px;
@@ -187,26 +186,27 @@ a {
     .mainBar {
         height: 100vh;
     }
-    .selection:active .txtWhite1 {
-        opacity: 1;
+    .selection:hover {
+        justify-content: center;
+        animation: none;
+        transition: none;
+        max-width: 100px;
     }
-    .selection:active .txtWhite2 {
-        opacity: 1;
+    .selection:hover .txtWhite1,
+    .selection:hover .txtWhite2,
+    .selection:hover .txtWhite3,
+    .selection:hover .txtWhite4,
+    .selection:hover .txtWhite5,
+    .selection:hover .txtWhite6 {
+        opacity: 0;
+        transition: none;
     }
-    .selection:active .txtWhite3 {
-        opacity: 1;
+    .selection:hover {
+        width: 100px;
+        justify-content: center;
+        transition: none;
     }
-    .selection:active .txtWhite4 {
-        opacity: 1;
-    }
-    .selection:active .txtWhite5 {
-        opacity: 1;
-    }
-    .selection:active .txtWhite6 {
-        opacity: 1;
-    }
-    .selection:active {
-        justify-content: flex-start;
-        width: 200px;
+    .iconStyle {
+        transition: none;
     }
 }
