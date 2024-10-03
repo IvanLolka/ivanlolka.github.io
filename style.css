@@ -44,6 +44,7 @@ a {
     border-radius: 20px;
     padding: 100px;
     width: 500px;
+    -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
 }
 .txtWhite1, .txtWhite2, .txtWhite3, .txtWhite4, .txtWhite5, .txtWhite6 {
@@ -51,6 +52,7 @@ a {
     font-size: 20px;
     font-family: 'roboto';
     opacity: 0;
+    -webkit-transition: 0s ease;
     transition: 0s ease;
     position: absolute;
 }
@@ -69,6 +71,7 @@ a {
 }
 .iconStyle {
     width: 50px;
+    -webkit-transition: 0.4s ease;
     transition: 0.4s ease;
 }
 .ava {
@@ -103,6 +106,7 @@ a {
     width: 100px;
     height: 100px;
     cursor: pointer;
+    -webkit-transition: 0.4s ease;
     transition: 0.4s ease;
     position: relative;
     overflow: hidden;
@@ -170,6 +174,8 @@ a {
     height: 5px;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
+    -webkit-animation: fall linear infinite;
+    -moz-animation: fall linear infinite;
     animation: fall linear infinite;
 }
 
@@ -179,6 +185,22 @@ a {
     }
     100% {
         transform: translateY(110vh); /* Точки падают вниз */
+    }
+}
+@-webkit-keyframes fall {
+    0% {
+        -webkit-transform: translateY(-10vh);
+    }
+    100% {
+        -webkit-transform: translateY(110vh);
+    }
+}
+@-moz-keyframes fall {
+    0% {
+        -moz-transform: translateY(-10vh);
+    }
+    100% {
+        -moz-transform: translateY(110vh);
     }
 }
 
