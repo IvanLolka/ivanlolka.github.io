@@ -182,3 +182,31 @@ a {
         transform: translateY(110vh); /* Точки падают вниз */
     }
 }
+
+@media (600px > width) {
+    .mainBar {
+        height: 100vh;
+    }
+    .selection:active .txtWhite1 {
+        opacity: 1;
+    }
+    .selection:active .txtWhite2 {
+        opacity: 1;
+    }
+    .selection:active .txtWhite3 {
+        opacity: 1;
+    }
+    .selection:active .txtWhite4 {
+        opacity: 1;
+    }
+    .selection:active .txtWhite5 {
+        opacity: 1;
+    }
+    .selection:active .txtWhite6 {
+        opacity: 1;
+    }
+    .selection:active {
+        justify-content: flex-start;
+        width: 200px;
+    }
+}
