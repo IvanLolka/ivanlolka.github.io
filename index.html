@@ -53,14 +53,14 @@
 
         function createDot() {
             const dot = document.createElement('div');
+            const minOpacity = 0.3;
             dot.classList.add('dot');
-            dot.style.left = `${Math.random() * 100}vw`; // Появление в случайной позиции по ширине
-            dot.style.top = `-10px`; // Спавн точки выше верхней границы экрана
-            dot.style.animationDuration = `${20 + Math.random() * 4}s`; // Случайная скорость падения
-            dot.style.opacity = Math.random(); // Различная прозрачность точек
+            dot.style.left = `${Math.random() * 100}vw`;
+            dot.style.top = `-10px`;
+            dot.style.animationDuration = `${20 + Math.random() * 4}s`;
+            dot.style.opacity = Math.random() * (1 - minOpacity) + minOpacity;
             container.appendChild(dot);
 
-            // Удаление точки после завершения анимации
             const checkDotPosition = setInterval(() => {
                 const rect = dot.getBoundingClientRect();
                 if (rect.top > window.innerHeight) {
