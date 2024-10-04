@@ -47,15 +47,7 @@ a {
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
 }
-.txtWhite1, .txtWhite2, .txtWhite3, .txtWhite4, .txtWhite5, .txtWhite6 {
-    color: white;
-    font-size: 20px;
-    font-family: 'roboto';
-    opacity: 0;
-    -webkit-transition: 0s ease;
-    transition: 0s ease;
-    position: absolute;
-}
+
 .txt {
     font-size: 25px;
     margin-bottom: 20px;
@@ -73,6 +65,7 @@ a {
     width: 50px;
     -webkit-transition: 0.4s ease;
     transition: 0.4s ease;
+    will-change: transform;
 }
 .ava {
     width: 200px;
@@ -82,13 +75,13 @@ a {
     background-image: url("assets/avatarka.jpg");
 }
 .selectionBar {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(3, min-content);
     gap: 30px;
 }
 .selectionBar2 {
     margin-top: 20px;
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(3, min-content);
     gap: 30px;
 }
@@ -105,56 +98,28 @@ a {
     padding: 10px;
     width: 100px;
     height: 100px;
-    cursor: pointer;
+    pointer-events: none;
     -webkit-transition: 0.4s ease;
     transition: 0.4s ease;
     position: relative;
     overflow: hidden;
+    will-change: transform;
 }
 
-.selection:hover .txtWhite1 {
-    opacity: 1;
+.rotate {
+    transition: 0.4s ease;
+    pointer-events: none;
 }
-.selection:hover .txtWhite2 {
-    opacity: 1;
+.selrtate:hover .rotate {
+    transform: rotate(360deg);
 }
-.selection:hover .txtWhite3 {
-    opacity: 1;
+.selrtate:hover .selection  {
+    transform: scaleX(3);
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 1px;
 }
-.selection:hover .txtWhite4 {
-    opacity: 1;
-}
-.selection:hover .txtWhite5 {
-    opacity: 1;
-}
-.selection:hover .txtWhite6 {
-    opacity: 1;
-}
-
-.txtWhite1{
-    left: 89px;
-}
-.txtWhite2{
-    left: 75px;
-} 
-.txtWhite3 {
-    left: 72px;
-} 
-.txtWhite4 {
-    left: 82px;
-} 
-.txtWhite5 {
-    left: 68px;
-} 
-.txtWhite6 {
-    left: 75px;
-}
-
-.selection:hover {
-    justify-content: flex-start;
-    width: 200px;
-}
-.selection:active {
+.selrtate:active .selection {
     background-color: rgb(0, 0, 0, 20%);
 }
 
@@ -170,15 +135,14 @@ a {
 }
 .dot {
     position: absolute;
-    width: 5px;
-    height: 5px;
+    width: 2px;
+    height: 10px;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     -webkit-animation: fall linear infinite;
     -moz-animation: fall linear infinite;
     animation: fall linear infinite;
     will-change: transform;
-    filter: blur(0.6px);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 
                 0 0 20px rgba(255, 255, 255, 0.3), 
                 0 0 30px rgba(255, 255, 255, 0.2);
@@ -186,10 +150,10 @@ a {
 
 @keyframes fall {
     0% {
-        transform: translateY(-10vh);
+        transform: translateY(110vh);
     }
     100% {
-        transform: translateY(110vh);
+        transform: translateY(-10vh);
     }
 }
 @-webkit-keyframes fall {
