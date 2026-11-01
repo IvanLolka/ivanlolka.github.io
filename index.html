@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1d1b1b">
+  <meta name="description" content="Проекты, версии и загрузки">
+  <title>Мои проекты</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="mascot_lines.js" defer></script>
+  <script src="mascot.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#projects" data-tab-link="projects" aria-label="На главную">
+      <img class="brand-logo" src="assets/logo.webp" alt="Логотип сайта">
+    </a>
+    <nav class="tabs" role="tablist" aria-label="Основные разделы">
+      <button class="tab-link is-active" id="tab-projects" type="button" role="tab" aria-selected="true" aria-controls="projects" data-tab="projects">Проекты</button>
+      <button class="tab-link" id="tab-about" type="button" role="tab" aria-selected="false" aria-controls="about" data-tab="about">Обо мне</button>
+      <button class="tab-link" id="tab-updates" type="button" role="tab" aria-selected="false" aria-controls="updates" data-tab="updates">Обновления</button>
+      <button class="tab-link" id="tab-links" type="button" role="tab" aria-selected="false" aria-controls="links" data-tab="links">Ссылки</button>
+    </nav>
+    <div class="topbar-actions">
+      <button class="top-action settings-trigger" type="button" data-open-settings>⚙ Настройки</button>
+      <button class="top-action" type="button" data-open-tab="links">Контакты <span aria-hidden="true">↗</span></button>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="tab-panel" id="projects" role="tabpanel" aria-labelledby="tab-projects">
+      <div class="page-heading">
+        <div>
+          <h1>Проекты</h1>
+        </div>
+      </div>
+
+      <div class="toolbar" role="search">
+        <label class="search-field">
+          <span class="sr-only">Поиск по проектам</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+          <input id="project-search" type="search" placeholder="Поиск по названию, описанию, версии…" autocomplete="off">
+          <button id="clear-search" class="clear-search" type="button" aria-label="Очистить поиск" hidden>×</button>
+        </label>
+        <div class="select-field custom-select-field" data-select-label="Фильтр по категории">
+          <span class="sr-only">Фильтр по категории</span>
+          <select id="category-filter"><option value="">Все категории</option></select>
+        </div>
+        <div class="select-field custom-select-field" data-select-label="Фильтр по статусу разработки">
+          <span class="sr-only">Фильтр по статусу разработки</span>
+          <select id="status-filter"><option value="">Все статусы</option></select>
+        </div>
+        <div class="select-field custom-select-field sort-field" data-select-label="Сортировка проектов">
+          <span class="sr-only">Сортировка проектов</span>
+          <select id="sort-projects">
+            <option value="updated-desc">Сначала обновлённые</option>
+            <option value="name-asc">Название: А-Я</option>
+            <option value="name-desc">Название: Я-А</option>
+            <option value="category-asc">Категория: А-Я</option>
+          </select>
+        </div>
+        <button id="reset-filters" class="button button-quiet" type="button">Сбросить</button>
+      </div>
+
+      <div class="results-bar">
+        <p id="result-count" aria-live="polite">Подготовка списка…</p>
+        <button id="refresh-projects" class="text-button" type="button"><span aria-hidden="true">↻</span> Обновить данные</button>
+      </div>
+      <div id="data-status" class="data-status" role="status" aria-live="polite">Загрузка проектов…</div>
+
+      <div class="project-grid" id="project-grid" aria-live="polite" aria-busy="true"></div>
+      <div id="empty-state" class="empty-state" hidden>
+        <h2 id="empty-title">Ничего не найдено</h2>
+        <p id="empty-message">Попробуй изменить запрос или сбросить фильтры.</p>
+        <button id="empty-reset" class="button" type="button">Сбросить фильтры</button>
+      </div>
+      <div class="more-row"><button id="show-more" class="button" type="button" hidden>Показать ещё</button></div>
+    </section>
+
+    <section class="tab-panel" id="about" role="tabpanel" aria-labelledby="tab-about" hidden>
+      <div class="about-layout">
+        <div class="about-main">
+          <div class="page-heading">
+            <div><h1>Знакомство</h1></div>
+          </div>
+          <div class="content-columns">
+            <section class="placeholder-box text-placeholder">
+              <div>
+                <h2>Чем занимаюсь</h2>
+                <p>Мне нравится создавать собственные приложения и инструменты - особенно когда они решают реальную проблему или делают привычные задачи удобнее. Я не просто повторяю готовые решения: стараюсь привнести своё видение, продумать детали и довести интерфейс до состояния, когда им действительно приятно пользоваться. А ещё люблю экспериментировать с новыми идеями - этот сайт тоже одна из таких работ.</p>
+              </div>
+            </section>
+            <section class="placeholder-box text-placeholder">
+              <div>
+                <h2>Инструменты и подход</h2>
+                <p>Для десктопных приложений использую Rust и Python. Сайты и веб-интерфейсы создаю на HTML, CSS и JavaScript, а приложения для Android - на Kotlin.</p>
+                <p>Основной редактор - VS Code.</p>
+                <p>Нейросети помогают мне исследовать темы, проверять идеи и разбираться в сложных вопросах. Для поиска и анализа чаще использую GPT, Gemini и Qwen; GLM 5.3 Flash и GPT 6.1 Sol помогают ускорять рутинные задачи и разбирать отдельные фрагменты кода.</p>
+                <p>С визуальной частью тоже экспериментирую: придумываю образы, а персонажей и иллюстрации создаю с помощью ChatGPT, PixAI и Gemini.</p>
+              </div>
+            </section>
+          </div>
+        </div>
+        <aside class="placeholder-box portrait-placeholder" aria-label="Портрет автора">
+          <img src="assets/itsME.webp" alt="Портрет автора">
+        </aside>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="updates" role="tabpanel" aria-labelledby="tab-updates" hidden>
+      <div class="page-heading"><div><h1>Обновления</h1></div></div>
+      <div id="updates-list" class="update-list" aria-live="polite"></div>
+      <div id="updates-empty" class="empty-state" hidden><h2>Пока нет обновлений</h2><p>Здесь появятся изменения проектов из таблицы.</p></div>
+    </section>
+
+    <section class="tab-panel" id="links" role="tabpanel" aria-labelledby="tab-links" hidden>
+      <div class="page-heading"><div><h1>Ссылки</h1></div></div>
+      <div class="link-grid">
+        <a class="tg-button" href="https://t.me/logovoLolki" target="_blank" rel="noopener">
+          <span class="tg-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21.6 3.2 2.9 10.4c-.9.35-.88 1.62.04 1.94l4.66 1.6 1.8 5.62c.27.85 1.36 1.05 1.92.35l2.55-3.2 4.72 3.46c.72.53 1.74.14 1.93-.74l2.6-14.63c.19-1.06-.83-1.92-1.72-1.6Zm-3.4 4.1-7.6 6.87c-.13.12-.21.28-.24.45l-.4 3.02-1.2-3.74a.7.7 0 0 1 .3-.8l8.84-5.47c.3-.19.6.22.3.67Z"/></svg>
+          </span>
+          <span class="tg-copy">
+            <strong>Логово Лолки</strong>
+            <small>t.me/logovoLolki - новости проектов и обновления</small>
+          </span>
+          <span class="tg-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="settings-dialog" id="interface-settings" aria-labelledby="settings-title">
+    <form method="dialog" class="settings-panel" id="settings-form">
+      <div class="settings-header">
+        <div>
+          <h2 id="settings-title">Настройки интерфейса</h2>
+        </div>
+        <button class="settings-close" type="submit" aria-label="Закрыть настройки">×</button>
+      </div>
+
+      <fieldset class="settings-group">
+        <legend class="settings-legend">Тема оформления</legend>
+        <div class="theme-choices" id="ui-theme" role="radiogroup" aria-label="Тема оформления">
+          <button class="theme-choice" type="button" data-theme-choice="dark" aria-pressed="false">
+            <span class="theme-sample theme-sample-dark" aria-hidden="true"><i></i><b></b><em></em></span>
+            <span class="theme-choice-copy"><strong>Тёмная</strong><small>Спокойная, для работы вечером</small></span>
+            <span class="theme-choice-check" aria-hidden="true">✓</span>
+          </button>
+          <button class="theme-choice" type="button" data-theme-choice="light" aria-pressed="false">
+            <span class="theme-sample theme-sample-light" aria-hidden="true"><i></i><b></b><em></em></span>
+            <span class="theme-choice-copy"><strong>Светлая</strong><small>Яркая и чистая</small></span>
+            <span class="theme-choice-check" aria-hidden="true">✓</span>
+          </button>
+        </div>
+      </fieldset>
+
+      <fieldset class="settings-group accent-settings-group">
+        <legend class="settings-legend">Акцентный цвет</legend>
+        <div class="accent-picker-row">
+          <button id="open-accent-picker" class="accent-color-control" type="button">
+            <span class="accent-color-chip" id="accent-trigger-swatch"></span>
+            <span>Свой акцент</span>
+          </button>
+          <span class="accent-picker-hint">Кнопки, подсветка и элементы интерфейса</span>
+        </div>
+        <div class="accent-preview" id="accent-preview">
+          <span></span>
+          <code>#F4A943</code>
+        </div>
+        <div class="color-presets" aria-label="Готовые цвета">
+          <button type="button" data-accent="#F4A943" style="--swatch:#F4A943" aria-label="Янтарный"></button>
+          <button type="button" data-accent="#79A8FF" style="--swatch:#79A8FF" aria-label="Голубой"></button>
+          <button type="button" data-accent="#C58BFF" style="--swatch:#C58BFF" aria-label="Фиолетовый"></button>
+          <button type="button" data-accent="#67D2A3" style="--swatch:#67D2A3" aria-label="Мятный"></button>
+          <button type="button" data-accent="#FF7F9A" style="--swatch:#FF7F9A" aria-label="Розовый"></button>
+        </div>
+      </fieldset>
+
+      <fieldset class="settings-group">
+        <legend class="settings-legend">Размер текста</legend>
+        <div class="theme-options" id="ui-font-size" role="radiogroup" aria-label="Размер текста">
+          <label class="theme-chip">
+            <input type="radio" name="fontSize" value="small" data-size-radio>
+            <span class="chip-label">Меньше</span>
+          </label>
+          <label class="theme-chip">
+            <input type="radio" name="fontSize" value="normal" data-size-radio checked>
+            <span class="chip-label">Обычный</span>
+          </label>
+          <label class="theme-chip">
+            <input type="radio" name="fontSize" value="large" data-size-radio>
+            <span class="chip-label">Крупный</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <label class="honey-switch-row">
+        <span class="honey-switch-text">
+          <strong>Показывать Ханю</strong>
+          <small>Маскот с репликами в углу экрана</small>
+        </span>
+        <span class="honey-switch">
+          <input id="ui-mascot" type="checkbox" checked>
+          <span class="switch-track"><span class="switch-thumb"></span></span>
+        </span>
+      </label>
+
+      <div class="settings-footer">
+        <button class="button button-quiet" type="button" data-reset-settings>Сбросить</button>
+        <button class="button button-settings-save" type="submit">Готово</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="accent-picker-dialog" id="accent-picker-dialog" aria-labelledby="accent-picker-title">
+    <div class="accent-picker-panel">
+      <div class="accent-picker-header">
+        <h2 id="accent-picker-title">Выберите цвет</h2>
+        <button class="settings-close" id="close-accent-picker" type="button" aria-label="Закрыть палитру">×</button>
+      </div>
+      <div class="hsv-control">
+        <label for="hsv-hue">Тон</label>
+        <input id="hsv-hue" type="range" min="0" max="359" value="36">
+      </div>
+      <div class="hsv-control">
+        <label for="hsv-saturation">Насыщенность</label>
+        <input id="hsv-saturation" type="range" min="0" max="100" value="82">
+      </div>
+      <div class="hsv-control">
+        <label for="hsv-value">Яркость</label>
+        <input id="hsv-value" type="range" min="0" max="100" value="96">
+      </div>
+      <div class="hsv-preview-row">
+        <span>Выбранный цвет</span>
+        <span class="hsv-preview-value"><code id="hsv-hex-value">#F4A943</code><span class="hsv-preview-swatch" id="hsv-preview-swatch"></span></span>
+      </div>
+      <div class="hsv-actions">
+        <button id="cancel-accent-picker" type="button">Отмена</button>
+        <button id="apply-accent-picker" class="button-settings-save" type="button">Установить</button>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="footer">
+    <span class="footer-brand">
+       IvanLolka project
+    </span>
+    <span>© <span id="current-year"></span></span>
+  </footer>
+</body>
+</html>
