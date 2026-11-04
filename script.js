@@ -1,17 +1,5 @@
-  
-                                      
-                       
-                                                                                            
-                                                                  
-                                    
-                                                              
-                                                                                 
-   
-                                                                           
-                                                               
 const SHEET_URL = "https://docs.google.com/spreadsheets/d/12LWMazV4G3kS_7bH1ee8COB4xFz8_T1lEepIMP4yG20/edit?usp=sharing";
-                                                                      
-                                                                                          
+                                                           
 const SHEET_GID = "";
 const PAGE_SIZE = 9;
 const CACHE_KEY = "project-scaffold-sheet-cache-v3";
@@ -298,10 +286,6 @@ function makeCard(project) {
   const hasGithub = addExternalLink(actions, project.github, "GitHub", "button-github", "github");
   if (!hasDownload) {
     const missing = makeElement("span", "card-link-missing", "[ ДОБАВЬ ССЫЛКУ НА АРХИВ В ТАБЛИЦУ ]");
-    actions.append(missing);
-  }
-  if (!hasGithub) {
-    const missing = makeElement("span", "card-link-missing", "[ ДОБАВЬ ССЫЛКУ НА GITHUB В ТАБЛИЦУ ]");
     actions.append(missing);
   }
   body.append(actions);
